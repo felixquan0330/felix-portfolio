@@ -1,6 +1,6 @@
 import ProjectCard from "@/components/ProjectCard";
 
-export default function ProjectsPage() {
+export default function Home() {
   const projects = [
     {
       title: "My Portfolio Site",
@@ -13,7 +13,7 @@ export default function ProjectsPage() {
     // ...more projects
   ];
 
-  return (
+  return (  
     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 p-8">
       {projects.map((p) => (
         <ProjectCard key={p.title} {...p} />
