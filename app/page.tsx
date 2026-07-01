@@ -1,23 +1,12 @@
-import ProjectCard from "@/components/ProjectCard";
+import clientPromise from "@/lib/mongodb";
 
-export default function Home() {
-  const projects = [
-    {
-      title: "My Portfolio Site",
-      description: "Personal site built with Next.js and Firebase",
-      imageUrl: "/images/portfolio.png",
-      tags: ["Next.js", "Firebase", "Tailwind"],
-      liveUrl: "https://example.com",
-      githubUrl: "https://github.com/you/portfolio",
-    },
-    // ...more projects
-  ];
-
-  return (  
-    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 p-8">
-      {projects.map((p) => (
-        <ProjectCard key={p.title} {...p} />
-      ))}
-    </div>
-  );
+export default async function Home() {
+  try {
+    const client = await clientPromise;
+    const db = client.db("portfolio");
+    const collections = await db.listCollections().toArray();
+    return <div>Connected! Collections: {JSON.stringify(collections.map(c => c.name))}</div>;
+  } catch (err) {
+    return <div>Connection failed: {String(err)}</div>;
+  }
 }

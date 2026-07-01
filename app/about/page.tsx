@@ -6,14 +6,14 @@ export default function AboutPage() {
       {/* Header */}
       <div className="flex flex-col sm:flex-row items-center gap-8 mb-12">
         <img
-          src="/file.svg"
+          src="/public/images/1.png"
           alt="Your name"
           className="w-32 h-32 rounded-full object-cover"
         />
         <div>
           <h1 className="text-3xl font-bold">About Me</h1>
           <p className="text-gray-600 mt-2">
-            Hi, I'm [Your Name] — a developer passionate about building
+            Hi, I'm Felix Quan — a developer passionate about building
             clean, useful web applications.
           </p>
         </div>
