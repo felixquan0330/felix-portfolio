@@ -5,8 +5,6 @@ const ADMIN_EMAIL = "tomasismy1@gmail.com";
 
 export default async function AdminPage() {
     const session = await auth();
-    
-    console.log("user email: ", !session?.user || session.user)
 
     if (!session?.user || session.user.email !== ADMIN_EMAIL) {
         redirect("/");

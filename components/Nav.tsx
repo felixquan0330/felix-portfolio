@@ -11,10 +11,20 @@ const links = [
   { href: "/contact", label: "Contact" },
 ];
 
-export default function Nav({ authSlot }: { authSlot: React.ReactNode }) {
+export default function Nav({
+  authSlot,
+  isAdmin
+}: {
+  authSlot: React.ReactNode,
+  isAdmin: boolean
+}) {
 
   const pathname = usePathname();
   const [isOpen, setIsOpen] = useState(false);
+
+  const navLinks = isAdmin
+    ? [...links, { href: "/admin", label: "Admin" }]
+    : links;
 
   return (
     <nav className="border-b bg-white sticky top-0 z-50">
@@ -23,13 +33,12 @@ export default function Nav({ authSlot }: { authSlot: React.ReactNode }) {
           <Link href="/" className="text-lg font-bold">Felix Quan</Link>
 
           <div className="hidden sm:flex items-center gap-6">
-            {links.map((link) => (
+            {navLinks.map((link) => (
               <Link
                 key={link.href}
                 href={link.href}
-                className={`text-sm font-medium transition-colors ${
-                  pathname === link.href ? "text-blue-600" : "text-gray-600 hover:text-gray-900"
-                }`}
+                className={`text-sm font-medium transition-colors ${pathname === link.href ? "text-blue-600" : "text-gray-600 hover:text-gray-900"
+                  }`}
               >
                 {link.label}
               </Link>
