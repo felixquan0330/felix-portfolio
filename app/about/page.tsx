@@ -6,7 +6,7 @@ export default function AboutPage() {
       {/* Header */}
       <div className="flex flex-col sm:flex-row items-center gap-8 mb-12">
         <img
-          src="/images/1.png"
+          src="/images/user.png"
           alt="Your name"
           className="w-32 h-32 rounded-full object-cover"
         />
