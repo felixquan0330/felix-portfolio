@@ -1,29 +1,14 @@
 import Link from "next/link";
 import ProjectCard from "@/components/ProjectCard";
+import dbConnect from "@/lib/mongoose";
+import Project from "@/models/Project";
 
-const featuredProjects = [
-  {
-    title: "My Portfolio Site",
-    description: "Personal site built with Next.js and MongoDB",
-    imageUrl: "/images/portfolio.png",
-    tags: ["Next.js", "MongoDB", "Tailwind"],
-    liveUrl: "https://example.com",
-    githubUrl: "https://github.com/you/portfolio",
-  },
-  {
-    title: "Weather App",
-    description: "Real-time weather lookup using a public API",
-    imageUrl: "/images/weather-app.png",
-    tags: ["React", "API", "CSS"],
-    liveUrl: "https://weather-example.com",
-    githubUrl: "https://github.com/you/weather-app",
-  },
-];
+export default async function Home() {
+  await dbConnect();
+  const featuredProjects = await Project.find({}).lean();
 
-export default function Home() {
   return (
     <div>
-      {/* Hero */}
       <section className="max-w-4xl mx-auto px-6 pt-24 pb-16 text-center">
         <h1 className="text-4xl sm:text-5xl font-bold mb-4">
           Hi, I'm Felix Quan

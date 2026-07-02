@@ -12,6 +12,7 @@ const links = [
 ];
 
 export default function Nav({ authSlot }: { authSlot: React.ReactNode }) {
+
   const pathname = usePathname();
   const [isOpen, setIsOpen] = useState(false);
 
@@ -19,7 +20,7 @@ export default function Nav({ authSlot }: { authSlot: React.ReactNode }) {
     <nav className="border-b bg-white sticky top-0 z-50">
       <div className="max-w-6xl mx-auto px-6">
         <div className="flex items-center justify-between h-16">
-          <Link href="/" className="text-lg font-bold">Your Name</Link>
+          <Link href="/" className="text-lg font-bold">Felix Quan</Link>
 
           <div className="hidden sm:flex items-center gap-6">
             {links.map((link) => (
