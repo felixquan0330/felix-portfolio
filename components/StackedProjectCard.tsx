@@ -10,7 +10,7 @@ export default function StackedProjectCard({ index, title, description, imageUrl
   return (
     <div
       className="sticky bg-[#111E] rounded-2xl border border-gray-800 p-8 mb-6 shadow-2xl"
-      style={{ top: `${100 + index * 40}px` }}
+      style={{ top: `${200 + index * 10}px` }}
     >
       <div className="flex flex-wrap gap-2 justify-end mb-6">
         {tags.map((tag) => (
