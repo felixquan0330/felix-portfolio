@@ -2,10 +2,10 @@ export default function Intro() {
   return (
     <section
       id="intro"
-      className="relative min-h-screen flex flex-col bg-black text-white justify-center scroll-mt-40"
+      className="relative min-h-screen flex flex-col text-white justify-center scroll-mt-40"
     >
       <div
-        className="max-w-5xl mx-auto px-6"
+        className="max-w-5xl mx-auto px-6 text-left"
       >
         <p className="text-sm uppercase tracking-widest text-gray-500 mb-4 opacity-0 animate-[fade-in_0.6s_ease_forwards]">
           Product Designer & Developer

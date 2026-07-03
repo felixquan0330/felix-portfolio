@@ -4,13 +4,12 @@ type Props = {
   description: string;
   imageUrl: string;
   tags: string[];
-  bgColor: string;
 };
 
-export default function StackedProjectCard({ index, title, description, imageUrl, tags, bgColor }: Props) {
+export default function StackedProjectCard({ index, title, description, imageUrl, tags }: Props) {
   return (
     <div
-      className="sticky bg-[#111] rounded-2xl border border-gray-800 p-8 mb-6 shadow-2xl"
+      className="sticky bg-[#111E] rounded-2xl border border-gray-800 p-8 mb-6 shadow-2xl"
       style={{ top: `${100 + index * 40}px` }}
     >
       <div className="flex flex-wrap gap-2 justify-end mb-6">
@@ -27,9 +26,8 @@ export default function StackedProjectCard({ index, title, description, imageUrl
       <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
         <div
           className="rounded-xl aspect-[4/3] flex items-center justify-center overflow-hidden"
-          style={{ backgroundColor: bgColor }}
         >
-          <img src={imageUrl} alt={title} className="w-3/4 object-contain" />
+          <img src={imageUrl} alt={title} className="w-full object-contain" />
         </div>
 
         <div>

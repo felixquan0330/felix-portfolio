@@ -7,6 +7,7 @@ import CustomCursor from "@/components/CustomCursor";
 import { auth } from "@/auth";
 import NextTopLoader from "nextjs-toploader";
 import SmoothScroll from "@/components/SmoothScroll";
+import AnimatedBackground from "@/components/background/AnimatedBackground";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -42,11 +43,17 @@ export default async function RootLayout({
       {/* <body className="min-h-full flex flex-col cursor-none sm:cursor-none"> */}
       <body className="min-h-full flex flex-col">
         {/* <CustomCursor /> */}
+        <div id="stars-container" className="z-0">
+          <div id='stars'></div>
+          <div id='stars2'></div>
+          <div id='stars3'></div>
+        </div>
         <NextTopLoader color="#2563eb" height={3} showSpinner={false} />
         <div className="relative z-10">
           <SmoothScroll />
           <Nav authSlot={<AuthButton />} isAdmin={isAdmin} />
           {children}
+          <AnimatedBackground />
         </div>
       </body>
     </html>

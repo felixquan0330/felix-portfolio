@@ -23,7 +23,7 @@ export default function ProjectCard({
         <p className="text-gray-600 text-sm mt-1">{description}</p>
         <div className="flex gap-2 flex-wrap mt-3">
           {tags.map((tag) => (
-            <span key={tag} className="text-xs bg-gray-100 px-2 py-1 rounded">
+            <span key={tag} className="text-xs px-2 py-1 rounded">
               {tag}
             </span>
           ))}

@@ -34,7 +34,7 @@ export default function Contact() {
   return (
     <section
       id="contact"
-      className="min-h-screen flex flex-col justify-center items-center bg-black text-white px-6 py-24 scroll-mt-20"
+      className="min-h-screen flex flex-col justify-center items-center text-white px-6 py-24 scroll-mt-20"
     >
       <div className="max-w-xl w-full text-center">
         <p className="text-sm uppercase tracking-widest text-gray-500 mb-3">

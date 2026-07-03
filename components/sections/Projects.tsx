@@ -7,7 +7,7 @@ export default async function Projects() {
   const projects = await Project.find({}).lean();
 
   return (
-    <section id="projects" className="bg-black py-24 scroll-mt-20">
+    <section id="projects" className="py-24 scroll-mt-50">
       <div className="max-w-4xl mx-auto px-6 mb-16 text-center">
         <h2 className="text-4xl font-bold text-white">Case Studies</h2>
       </div>
@@ -21,7 +21,6 @@ export default async function Projects() {
             description={p.description}
             imageUrl={p.imageUrl}
             tags={p.tags}
-            bgColor={["#D4E157", "#4FC3F7", "#FF8A65", "#BA68C8"][i % 4]}
           />
         ))}
       </div>
