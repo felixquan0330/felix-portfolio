@@ -22,7 +22,7 @@ export default function ProjectsManager({ projects }: { projects: any[] }) {
             await createProject(formData);
             setShowAddForm(false);
           }}
-          className="border rounded-lg p-4 space-y-2"
+          className="border border-gray-800 bg-[#111] rounded-lg p-4 space-y-2"
         >
           <ProjectFields />
           <button type="submit" className="bg-green-600 text-white px-4 py-2 rounded-md text-sm">
@@ -33,7 +33,7 @@ export default function ProjectsManager({ projects }: { projects: any[] }) {
 
       <div className="space-y-2">
         {projects.map((p) => (
-          <div key={p._id} className="border rounded-lg p-4">
+          <div key={p._id} className="border border-gray-800 bg-[#111] rounded-lg p-4">
             {editingId === p._id ? (
               <form
                 action={async (formData) => {
@@ -59,8 +59,8 @@ export default function ProjectsManager({ projects }: { projects: any[] }) {
             ) : (
               <div className="flex items-center justify-between">
                 <div>
-                  <p className="font-semibold">{p.title}</p>
-                  <p className="text-sm text-gray-600">{p.description}</p>
+                  <p className="font-semibold text-white">{p.title}</p>
+                  <p className="text-sm text-gray-400">{p.description}</p>
                 </div>
                 <div className="flex gap-2">
                   <button
@@ -88,12 +88,12 @@ export default function ProjectsManager({ projects }: { projects: any[] }) {
 function ProjectFields({ defaults }: { defaults?: any }) {
   return (
     <>
-      <input name="title" placeholder="Title" defaultValue={defaults?.title} required className="w-full border rounded-md px-3 py-2 text-sm" />
-      <textarea name="description" placeholder="Description" defaultValue={defaults?.description} required className="w-full border rounded-md px-3 py-2 text-sm" />
-      <input name="imageUrl" placeholder="Image URL (/images/...)" defaultValue={defaults?.imageUrl} className="w-full border rounded-md px-3 py-2 text-sm" />
-      <input name="tags" placeholder="Tags (comma separated)" defaultValue={defaults?.tags?.join(", ")} className="w-full border rounded-md px-3 py-2 text-sm" />
-      <input name="liveUrl" placeholder="Live URL" defaultValue={defaults?.liveUrl} className="w-full border rounded-md px-3 py-2 text-sm" />
-      <input name="githubUrl" placeholder="GitHub URL" defaultValue={defaults?.githubUrl} className="w-full border rounded-md px-3 py-2 text-sm" />
+      <input name="title" placeholder="Title" defaultValue={defaults?.title} required className="w-full border border-gray-700 bg-black rounded-md px-3 py-2 text-sm text-white placeholder-gray-500" />
+      <textarea name="description" placeholder="Description" defaultValue={defaults?.description} required className="w-full border border-gray-700 bg-black rounded-md px-3 py-2 text-sm text-white placeholder-gray-500" />
+      <input name="imageUrl" placeholder="Image URL (/images/...)" defaultValue={defaults?.imageUrl} className="w-full border border-gray-700 bg-black rounded-md px-3 py-2 text-sm text-white placeholder-gray-500" />
+      <input name="tags" placeholder="Tags (comma separated)" defaultValue={defaults?.tags?.join(", ")} className="w-full border border-gray-700 bg-black rounded-md px-3 py-2 text-sm text-white placeholder-gray-500" />
+      <input name="liveUrl" placeholder="Live URL" defaultValue={defaults?.liveUrl} className="w-full border border-gray-700 bg-black rounded-md px-3 py-2 text-sm text-white placeholder-gray-500" />
+      <input name="githubUrl" placeholder="GitHub URL" defaultValue={defaults?.githubUrl} className="w-full border border-gray-700 bg-black rounded-md px-3 py-2 text-sm text-white placeholder-gray-500" />
     </>
   );
 }

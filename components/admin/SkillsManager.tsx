@@ -16,9 +16,9 @@ export default function SkillsManager({ skills }: { skills: any[] }) {
 
       <div className="flex flex-wrap gap-2">
         {skills.map((s) => (
-          <span key={s._id} className="bg-gray-100 text-sm px-3 py-1 rounded-full flex items-center gap-2">
+          <span key={s._id} className="bg-white/10 text-white text-sm px-3 py-1 rounded-full flex items-center gap-2">
             {s.name}
-            <button onClick={() => deleteSkill(s._id)} className="text-red-600 text-xs">✕</button>
+            <button onClick={() => deleteSkill(s._id)} className="text-red-400 text-xs">✕</button>
           </span>
         ))}
       </div>

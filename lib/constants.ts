@@ -1,0 +1,1 @@
+export const ADMIN_EMAIL = "tomasismy1@gmail.com";
