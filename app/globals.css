@@ -40,17 +40,6 @@ body {
   to { width: 100% }
 }
 
-/* Firefox */
-html {
-  scrollbar-width: thin;
-  scrollbar-color: transparent transparent;
-}
-
-html:hover,
-html:focus-within {
-  scrollbar-color: rgba(139, 124, 246, 0.4) transparent;
-}
-
 /* Chrome, Edge, Safari */
 ::-webkit-scrollbar {
   width: 6px;
@@ -61,8 +50,12 @@ html:focus-within {
 }
 
 ::-webkit-scrollbar-thumb {
-  background-color: transparent;
+  background-color: rgba(139, 124, 246, 0.4);
   border-radius: 999px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background-color: rgba(139, 124, 246, 0.4);
 }
 
 html:hover::-webkit-scrollbar-thumb,
