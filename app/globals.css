@@ -40,10 +40,20 @@ body {
   to { width: 100% }
 }
 
-/* Hide Scrollbar */
+/* Firefox */
+html {
+  scrollbar-width: thin;
+  scrollbar-color: transparent transparent;
+}
+
+html:hover,
+html:focus-within {
+  scrollbar-color: rgba(139, 124, 246, 0.4) transparent;
+}
+
+/* Chrome, Edge, Safari */
 ::-webkit-scrollbar {
-  width: 8px;
-  height: 8px;
+  width: 6px;
 }
 
 ::-webkit-scrollbar-track {
@@ -52,13 +62,12 @@ body {
 
 ::-webkit-scrollbar-thumb {
   background-color: transparent;
-  border-radius: 8px;
+  border-radius: 999px;
 }
 
-/* Show thumb only when scrolling or hovering the page */
 html:hover::-webkit-scrollbar-thumb,
 html:focus-within::-webkit-scrollbar-thumb {
-  background-color: rgba(0, 0, 0, 0.3);
+  background-color: rgba(139, 124, 246, 0.4);
 }
 
 ::-webkit-scrollbar-button {

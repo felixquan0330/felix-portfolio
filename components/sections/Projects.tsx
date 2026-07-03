@@ -1,25 +1,27 @@
 import dbConnect from "@/lib/mongoose";
 import Project from "@/models/Project";
-import ProjectCard from "@/components/ProjectCard";
+import StackedProjectCard from "../StackedProjectCard";
 
 export default async function Projects() {
   await dbConnect();
   const projects = await Project.find({}).lean();
 
   return (
-    <section id="projects" className="max-w-6xl mx-auto px-6 py-16 scroll-mt-20">
-      <h2 className="text-3xl font-bold mb-2">My Projects</h2>
-      <p className="text-gray-600 mb-10">A selection of things I've built.</p>
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-        {projects.map((p: any) => (
-          <ProjectCard
+    <section id="projects" className="bg-black py-24 scroll-mt-20">
+      <div className="max-w-4xl mx-auto px-6 mb-16 text-center">
+        <h2 className="text-4xl font-bold text-white">Case Studies</h2>
+      </div>
+
+      <div className="max-w-4xl mx-auto px-6">
+        {projects.map((p: any, i: number) => (
+          <StackedProjectCard
             key={p._id.toString()}
+            index={i}
             title={p.title}
             description={p.description}
             imageUrl={p.imageUrl}
             tags={p.tags}
-            liveUrl={p.liveUrl}
-            githubUrl={p.githubUrl}
+            bgColor={["#D4E157", "#4FC3F7", "#FF8A65", "#BA68C8"][i % 4]}
           />
         ))}
       </div>

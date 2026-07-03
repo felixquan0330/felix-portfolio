@@ -6,6 +6,7 @@ import AuthButton from "@/components/AuthButton";
 import CustomCursor from "@/components/CustomCursor";
 import { auth } from "@/auth";
 import NextTopLoader from "nextjs-toploader";
+import SmoothScroll from "@/components/SmoothScroll";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -43,6 +44,7 @@ export default async function RootLayout({
         {/* <CustomCursor /> */}
         <NextTopLoader color="#2563eb" height={3} showSpinner={false} />
         <div className="relative z-10">
+          <SmoothScroll />
           <Nav authSlot={<AuthButton />} isAdmin={isAdmin} />
           {children}
         </div>
