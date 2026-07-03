@@ -3,9 +3,9 @@
 import { useEffect, useState } from "react";
 
 const links = [
-  { href: "#projects", label: "Projects" },
-  { href: "#about", label: "About me" },
-  { href: "#contact", label: "Contact" },
+  { href: "/#projects", label: "Projects" },
+  { href: "/#about", label: "About me" },
+  { href: "/#contact", label: "Contact" },
 ];
 
 export default function Nav({

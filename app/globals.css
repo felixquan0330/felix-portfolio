@@ -90,3 +90,6 @@ html:focus-within::-webkit-scrollbar-thumb {
   }
 }
 
+html {
+  scroll-behavior: smooth;
+}

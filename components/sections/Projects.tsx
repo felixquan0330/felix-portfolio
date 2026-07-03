@@ -7,7 +7,7 @@ export default async function Projects() {
   const projects = await Project.find({}).lean();
 
   return (
-    <section id="projects" className="py-24 scroll-mt-50">
+    <section id="projects" className="py-24 scroll-mt-10">
       <div className="max-w-4xl mx-auto px-6 mb-16 text-center">
         <h2 className="text-4xl font-bold text-white">Projects</h2>
       </div>

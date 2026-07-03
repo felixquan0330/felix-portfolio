@@ -21,14 +21,13 @@ export default function UserMenu({ name, image }: { name: string; image: string 
 
       {/* Popup */}
       <div
-        className={`absolute top-full right-0 mt-2 w-40 bg-black/90 backdrop-blur-md border border-white/10 rounded-xl shadow-2xl overflow-hidden transition-all duration-200 origin-top-right ${
-          isOpen ? "opacity-100 scale-100 pointer-events-auto" : "opacity-0 scale-95 pointer-events-none"
-        }`}
+        className={`absolute top-full right-0 mt-0 w-24 bg-black/90 backdrop-blur-md border border-white/10 rounded-xl shadow-2xl overflow-hidden transition-all duration-200 origin-top-right ${isOpen ? "opacity-100 scale-100 pointer-events-auto" : "opacity-0 scale-95 pointer-events-none"
+          }`}
       >
         <form action={googleSignOut}>
           <button
             type="submit"
-            className="w-full text-left px-4 py-3 text-sm text-gray-300 hover:text-white hover:bg-white/5 transition-colors"
+            className="w-full text-center px-4 py-3 text-sm text-gray-300 hover:text-white hover:bg-white/5 transition-colors"
           >
             Sign out
           </button>
