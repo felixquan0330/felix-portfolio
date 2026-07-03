@@ -21,6 +21,8 @@ export default async function Projects() {
             description={p.description}
             imageUrl={p.imageUrl}
             tags={p.tags}
+            liveUrl={p.liveUrl}
+            githubUrl={p.githubUrl}
           />
         ))}
       </div>

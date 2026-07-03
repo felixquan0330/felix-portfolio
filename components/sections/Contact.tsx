@@ -24,7 +24,7 @@ const socials = [
     href: "https://matrix.to/#/@yourusername:matrix.org",
     icon: (
       <svg viewBox="0 0 24 24" fill="currentColor" className="w-5 h-5">
-        <path d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm0 3a9 9 0 1 1 0 18 9 9 0 0 1 0-18zm-3.5 5.5v7l7-3.5-7-3.5z" />
+        <path d="M3 2h18v3H6v14h15v3H3V2zm6 6h9v3H9V8zm0 5h9v3H9v-3z" />
       </svg>
     ),
   },
