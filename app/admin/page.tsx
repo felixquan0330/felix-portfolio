@@ -12,6 +12,7 @@ import SkillsManager from "@/components/admin/SkillsManager";
 import AvatarManager from "@/components/admin/AvatarManager";
 import StatsChart from "@/components/admin/StatsChart";
 import { ADMIN_EMAIL } from "@/lib/constants";
+import Reveal from "@/components/Reveal";
 
 export default async function AdminPage() {
   const session = await auth();
@@ -29,29 +30,42 @@ export default async function AdminPage() {
   ]);
 
   return (
-    <div className="min-h-screen bg-black text-white">
-      <div className="max-w-6xl mx-auto px-6 py-16 space-y-16">
-        <div className="flex items-center justify-between">
-          <div>
-            <h1 className="text-3xl font-bold">Admin Dashboard</h1>
-            <p className="text-gray-400">Manage your portfolio content.</p>
+    <div className="min-h-screen text-white">
+      <div className="max-w-6xl mx-auto px-6 py-16 space-y-16 mt-20">
+        {/* Title and stats chart for viewport height */}
+        <div className="min-h-screen">
+          <div className="mb-12">
+            <h1 className="text-5xl font-bold my-8 text-center typewriter">Admin Dashboard</h1>
+            <div className="flex justify-between items-center mt-16">
+              <p
+                className="text-gray-400 opacity-0 animate-[fade-in_0.6s_ease_forwards]"
+                style={{ animationDelay: "0.6s" }}
+              >
+                Manage your portfolio content.
+              </p>
+              <Reveal delay={200}>
+                <Link
+                  href="/"
+                  className="text-sm font-medium px-4 py-2 rounded-full border border-gray-700 text-gray-300 hover:text-white hover:border-white transition-colors"
+                >
+                  ← Back to site
+                </Link>
+              </Reveal>
+            </div>
           </div>
-          <Link
-            href="/"
-            className="text-sm font-medium px-4 py-2 rounded-full border border-gray-700 text-gray-300 hover:text-white hover:border-white transition-colors"
-          >
-            ← Back to site
-          </Link>
+
+          <section className="">
+            <Reveal delay={300}>
+              <h2 className="text-xl font-semibold text-white">Site Activity - last 14 days</h2>
+              <h4 className="text-lg text-gray-400 mb-4">A look at sign-ins and messages over the past two weeks.</h4>
+            </Reveal>
+            <StatsChart data={stats} />
+          </section>
         </div>
 
         <section>
-          <h2 className="text-xl font-semibold mb-4 text-white">Activity (last 14 days)</h2>
-          <StatsChart data={stats} />
-        </section>
-
-        <section>
           <h2 className="text-xl font-semibold mb-4 text-white">Avatar</h2>
-          <AvatarManager currentUrl={(settings as any)?.avatarUrl} />
+          <AvatarManager settings={JSON.parse(JSON.stringify(settings)) ?? {}} />
         </section>
 
         <section>

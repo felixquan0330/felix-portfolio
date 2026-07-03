@@ -75,15 +75,19 @@ export async function deleteSkill(id: string) {
 }
 
 // --- Avatar ---
-export async function updateAvatar(formData: FormData) {
+export async function updateAvatars(formData: FormData) {
   await requireAdmin();
   await dbConnect();
-  const avatarUrl = formData.get("avatarUrl") as string;
   await Settings.findOneAndUpdate(
     { key: "profile" },
-    { avatarUrl },
+    {
+      avatarUrl: formData.get("avatarUrl"),
+      avatarBackLeftUrl: formData.get("avatarBackLeftUrl"),
+      avatarBackRightUrl: formData.get("avatarBackRightUrl"),
+      avatarFrontTopUrl: formData.get("avatarFrontTopUrl"),
+    },
     { upsert: true }
   );
   revalidatePath("/admin");
-  revalidatePath("/about");
+  revalidatePath("/");
 }

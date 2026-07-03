@@ -1,26 +1,78 @@
 "use client";
 
-import { updateAvatar } from "@/lib/actions/admin";
+import { useState } from "react";
+import { updateAvatars } from "@/lib/actions/admin";
 
-export default function AvatarManager({ currentUrl }: { currentUrl?: string }) {
+type Settings = {
+  avatarUrl?: string;
+  avatarBackLeftUrl?: string;
+  avatarBackRightUrl?: string;
+  avatarFrontTopUrl?: string;
+};
+
+const slots = [
+  { key: "avatarUrl", label: "Main Photo" },
+  { key: "avatarBackLeftUrl", label: "Back Left" },
+  { key: "avatarBackRightUrl", label: "Back Right" },
+  { key: "avatarFrontTopUrl", label: "Front Top" },
+] as const;
+
+export default function AvatarManager({ settings }: { settings: Settings }) {
+  const [preview, setPreview] = useState<Settings>(settings);
+  const [status, setStatus] = useState<"idle" | "saving" | "saved">("idle");
+
+  const handleChange = (key: string, value: string) => {
+    setPreview((prev) => ({ ...prev, [key]: value }));
+  };
+
+  const handleSubmit = async (formData: FormData) => {
+    setStatus("saving");
+    await updateAvatars(formData);
+    setStatus("saved");
+    setTimeout(() => setStatus("idle"), 1500);
+  };
+
   return (
-    <div className="flex items-center gap-6">
-      <img
-        src={currentUrl || "/images/profile.jpg"}
-        alt="Avatar"
-        className="w-20 h-20 rounded-full object-cover border border-gray-700"
-      />
-      <form action={updateAvatar} className="flex gap-2">
-        <input
-          name="avatarUrl"
-          placeholder="/images/new-avatar.jpg"
-          defaultValue={currentUrl}
-          className="border border-gray-700 bg-black text-white placeholder-gray-500 rounded-md px-3 py-2 text-sm w-64"
-        />
-        <button type="submit" className="bg-white text-black px-4 py-2 rounded-md text-sm font-medium hover:bg-gray-200 transition-colors">
-          Update
+    <form action={handleSubmit} className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+      {slots.map((slot) => (
+        <div
+          key={slot.key}
+          className="bg-[#111] border border-gray-800 rounded-2xl overflow-hidden flex flex-col"
+        >
+          <div className="aspect-square bg-black flex items-center justify-center overflow-hidden">
+            {preview[slot.key as keyof Settings] ? (
+              <img
+                src={preview[slot.key as keyof Settings]}
+                alt={slot.label}
+                className="w-full h-full object-cover"
+              />
+            ) : (
+              <span className="text-gray-600 text-sm">No image</span>
+            )}
+          </div>
+
+          <div className="p-4 space-y-2">
+            <p className="text-sm font-semibold text-white">{slot.label}</p>
+            <input
+              name={slot.key}
+              defaultValue={settings[slot.key as keyof Settings] ?? ""}
+              onChange={(e) => handleChange(slot.key, e.target.value)}
+              placeholder="/images/photo.jpg"
+              className="w-full border border-gray-700 bg-black rounded-md px-3 py-2 text-xs text-white placeholder-gray-500"
+            />
+          </div>
+        </div>
+      ))}
+
+      <div className="col-span-full">
+        <button
+          type="submit"
+          disabled={status === "saving"}
+          className="bg-white text-black px-6 py-2 rounded-md text-sm font-medium hover:bg-gray-200 transition-colors disabled:opacity-50"
+        >
+          {status === "saving" ? "Saving..." : status === "saved" ? "Saved!" : "Save All Photos"}
         </button>
-      </form>
-    </div>
+      </div>
+    </form>
   );
 }
