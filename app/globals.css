@@ -14,7 +14,7 @@
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --background: #ededed;
+    --background: #0000;
     --foreground: #0a0a0a;
   }
 }
@@ -23,4 +23,60 @@ body {
   background: var(--background);
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
+}
+
+.typewriter {
+  overflow: hidden; /* Ensures the content is not revealed until the animation */
+  white-space: nowrap; /* Keeps the content on a single line */
+  margin: 0 auto; /* Gives that scrolling effect as the typing happens */
+  animation: 
+    typing 3.5s steps(30, end),
+    blink-caret .5s step-end infinite;
+}
+
+/* The typing effect */
+@keyframes typing {
+  from { width: 0 }
+  to { width: 100% }
+}
+
+/* Hide Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: transparent;
+  border-radius: 8px;
+}
+
+/* Show thumb only when scrolling or hovering the page */
+html:hover::-webkit-scrollbar-thumb,
+html:focus-within::-webkit-scrollbar-thumb {
+  background-color: rgba(0, 0, 0, 0.3);
+}
+
+::-webkit-scrollbar-button {
+  display: none;
+}
+
+@keyframes fade-in {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes fade-up {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }

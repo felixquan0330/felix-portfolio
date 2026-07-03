@@ -29,7 +29,7 @@ export default async function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
-  
+
   const session = await auth();
   const isAdmin = session?.user?.email === ADMIN_EMAIL;
 
@@ -40,10 +40,12 @@ export default async function RootLayout({
     >
       {/* <body className="min-h-full flex flex-col cursor-none sm:cursor-none"> */}
       <body className="min-h-full flex flex-col">
-        <NextTopLoader color="#2563eb" height={3} showSpinner={false} />
-        <Nav authSlot={<AuthButton />} isAdmin={isAdmin} />
         {/* <CustomCursor /> */}
-        {children}
+        <NextTopLoader color="#2563eb" height={3} showSpinner={false} />
+        <div className="relative z-10">
+          <Nav authSlot={<AuthButton />} isAdmin={isAdmin} />
+          {children}
+        </div>
       </body>
     </html>
   );
