@@ -68,7 +68,7 @@ export default function AvatarManager({ settings }: { settings: Settings }) {
         <button
           type="submit"
           disabled={status === "saving"}
-          className="bg-white text-black px-6 py-2 rounded-md text-sm font-medium hover:bg-gray-200 transition-colors disabled:opacity-50"
+          className="text-sm font-medium px-4 py-2 rounded-full border border-gray-700 text-gray-300 hover:text-white hover:border-white transition-colors"
         >
           {status === "saving" ? "Saving..." : status === "saved" ? "Saved!" : "Save All Photos"}
         </button>

@@ -61,10 +61,11 @@ export async function addSkill(formData: FormData) {
   await dbConnect();
   await Skill.create({
     name: formData.get("name"),
-    logoImage: formData.get("name"),
     category: formData.get("category") || "General",
+    logoUrl: formData.get("logoUrl"), // confirm this line exists
   });
   revalidatePath("/admin");
+  revalidatePath("/");
 }
 
 export async function deleteSkill(id: string) {

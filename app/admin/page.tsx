@@ -34,7 +34,7 @@ export default async function AdminPage() {
       <div className="max-w-6xl mx-auto px-6 py-16 space-y-16 mt-20">
         {/* Title and stats chart for viewport height */}
         <div className="min-h-screen">
-          <div className="mb-12">
+          <div className="mb-12 px-6">
             <h1 className="text-5xl font-bold my-8 text-center typewriter">Admin Dashboard</h1>
             <div className="flex justify-between items-center mt-16">
               <p
@@ -55,8 +55,8 @@ export default async function AdminPage() {
           </div>
 
           <section className="">
-            <Reveal delay={300}>
-              <h2 className="text-xl font-semibold text-white">Site Activity - last 14 days</h2>
+            <Reveal delay={300} className="px-6">
+              <h2 className="text-2xl font-semibold text-white">Site Activity - last 14 days</h2>
               <h4 className="text-lg text-gray-400 mb-4">A look at sign-ins and messages over the past two weeks.</h4>
             </Reveal>
             <StatsChart data={stats} />
@@ -64,17 +64,17 @@ export default async function AdminPage() {
         </div>
 
         <section>
-          <h2 className="text-xl font-semibold mb-4 text-white">Avatar</h2>
+          <h2 className="text-2xl font-semibold mb-4 text-white px-6">Avatar</h2>
           <AvatarManager settings={JSON.parse(JSON.stringify(settings)) ?? {}} />
         </section>
 
         <section>
-          <h2 className="text-xl font-semibold mb-4 text-white">Skills</h2>
+          <h2 className="text-2xl font-semibold mb-4 text-white px-6">Skills</h2>
           <SkillsManager skills={JSON.parse(JSON.stringify(skills))} />
         </section>
 
         <section>
-          <h2 className="text-xl font-semibold mb-4 text-white">Projects</h2>
+          <h2 className="text-2xl font-semibold mb-4 text-white">Projects</h2>
           <ProjectsManager projects={JSON.parse(JSON.stringify(projects))} />
         </section>
       </div>
